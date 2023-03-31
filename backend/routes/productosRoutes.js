@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const { getProductos, setProductos, updateProductos, deleteProductos } = require('../controllers/productoController')
+const { protect } = require('../middleware/authMiddleware')
 
-router.route('/').get(getProductos).post(setProductos)
-router.route('/:id').put(updateProductos).delete(deleteProductos)
+router.route('/').get(protect,getProductos).post(protect, setProductos)
+router.route('/:id').put(protect, updateProductos).delete(protect, deleteProductos)
 
 
 

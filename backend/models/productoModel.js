@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
 const productoSchema = mongoose.Schema({
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     nombre: {
         type: String,
         required: [true, 'Por favor escribe el producto que buscas']
@@ -10,10 +15,6 @@ const productoSchema = mongoose.Schema({
         required: [true, 'Por favor escribe la categoria del producto que buscas']
     },
     marca: {
-        type: String,
-        required: [true, 'Por favor escribe la categoria del producto que buscas']
-    },
-    sku: {
         type: String,
         required: [true, 'Por favor escribe la categoria del producto que buscas']
     },
